@@ -95,7 +95,7 @@ bash run.sh
 - **Original Author**: [AzizKpln](https://github.com/AzizKpln) - Creator of Moriarty Project
 - **Mac Compatibility**: [zeck00](https://github.com/zeck00) - Added full macOS support and cross-platform compatibility
 
-<h1 align="center" width="100%">Donations</h1>
+<h1 align="center" width="100%">Donations to Main Author</h1>
 <p align="center" width="100%">
     <img width="19%" src="https://i.ibb.co/HXmPjDm/heart3.png">
 </p>
