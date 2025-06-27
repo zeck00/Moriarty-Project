@@ -1,7 +1,14 @@
 import asyncio
 from playwright.async_api import async_playwright
-from pyvirtualdisplay import Display
 import time
+import platform
+
+# pyvirtualdisplay is only needed on Linux for headless browsers
+if platform.system() == "Linux":
+    try:
+        from pyvirtualdisplay import Display
+    except ImportError:
+        pass
 async def GoogleMail(email,password):
     try:
         await page.locator("#identifierId").fill(email)
@@ -17,7 +24,7 @@ async def GoogleMail(email,password):
 async def getName():
     global name
     try:
-        name = await page.text_content("#app > main > div > div > div > div.rounded-xl.overflow-hidden.shadow > header > div:nth-child(1) > div.font-montserrat.text-lg.sm\:text-2xl.flex-none",timeout=10000)
+        name = await page.text_content("#app > main > div > div > div > div.rounded-xl.overflow-hidden.shadow > header > div:nth-child(1) > div.font-montserrat.text-lg.sm\\:text-2xl.flex-none",timeout=10000)
     except:
         name = await page.text_content("#app > main > div > div > div > div.flex.items-center.gap-4.mb-4 > div > h3")
         if "Oops! Search limit exceeded." in name:

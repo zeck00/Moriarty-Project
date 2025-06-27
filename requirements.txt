@@ -5,4 +5,5 @@ requests
 phonenumbers
 pytz
 playwright
-pyvirtualdisplay
+lxml
+pyvirtualdisplay; sys_platform == "linux"

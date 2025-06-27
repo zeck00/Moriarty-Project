@@ -1,7 +1,14 @@
 import asyncio
 from playwright.async_api import async_playwright
-from pyvirtualdisplay import Display
 import time
+import platform
+
+# pyvirtualdisplay is only needed on Linux for headless browsers
+if platform.system() == "Linux":
+    try:
+        from pyvirtualdisplay import Display
+    except ImportError:
+        pass
 async def GoogleMail(email,password):
     await page2.fill("#identifierId",email)
     await page2.click("#identifierNext > div > button > span",timeout=3000)

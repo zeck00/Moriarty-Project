@@ -1,7 +1,14 @@
 import asyncio
 from playwright.async_api import async_playwright
-from pyvirtualdisplay import Display
 import time
+import platform
+
+# pyvirtualdisplay is only needed on Linux for headless browsers
+if platform.system() == "Linux":
+    try:
+        from pyvirtualdisplay import Display
+    except ImportError:
+        pass
 
 def printAll():
     return twAc
