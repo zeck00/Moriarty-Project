@@ -1,7 +1,7 @@
 <p align="center" width="100%">
     <img width="19%" src="https://i.ibb.co/bvKNrwx/t5179.png">
 </p>
-<h2 align="center" width="100%">Moriarty Project Remastered V4.1.2 - Mac Compatible</h2>
+<h2 align="center" width="100%">Moriarty Project Remastered V4.1.3 - Cross-Platform</h2>
 
 > **Mac Compatibility Update by zeck00**  
 > This version has been enhanced with full macOS support while maintaining Linux compatibility.
@@ -47,7 +47,7 @@ Social Media Stuck Issue Fixed.
 
 ### Installation
 
-#### For Linux (Ubuntu/Debian):
+#### Original Repository (Linux/Ubuntu/Debian):
 ````
 sudo apt install git -y
 
@@ -58,17 +58,22 @@ cd Moriarty-Project/ && bash install.sh
 bash run.sh
 ````
 
-#### For macOS:
+#### Mac-Compatible Version (macOS + Linux):
 ````
-# Install git if not already installed
+# Install git if not already installed (macOS)
 git --version || xcode-select --install
 
-git clone https://github.com/AzizKpln/Moriarty-Project
+git clone https://github.com/zeck00/Moriarty-Project
 
 cd Moriarty-Project/ && bash install.sh
 
 bash run.sh
 ````
+
+**Repository Options:**
+- **🐧 Linux users**: Use either repository (both work)
+- **🍎 Mac users**: Use the [zeck00/Moriarty-Project](https://github.com/zeck00/Moriarty-Project) fork for native macOS support
+- **🔄 Cross-platform**: The Mac-compatible version works on both macOS and Linux
 
 **Note for Mac users:** The install script will automatically detect macOS and use Homebrew instead of apt. If you don't have Homebrew installed, the script will install it for you.
 
